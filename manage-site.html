@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Manage Site — ABC Coaching</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="manage-site.css" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <div class="dashboard-nav">
+        <a href="admin-dashboard.html">Dashboard</a>
+        <a href="manage-site.html" class="manage-site">Manage Site</a>
+      </div>
+
+      <div class="tabs">
+        <div class="tab active" data-tab="courses">Courses</div>
+        <div class="tab" data-tab="events">Events</div>
+        <div class="tab" data-tab="testimonials">Testimonials</div>
+        <div class="tab" data-tab="hero">Hero</div>
+        <div class="tab" data-tab="gallery">Gallery</div>
+      </div>
+
+      <div id="content">
+        <!-- Courses panel -->
+        <div class="panel" id="panel-courses">
+          <div class="grid">
+            <div>
+              <h3>Courses</h3>
+              <table class="list-table" id="coursesList">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Price (₹)</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+
+            <div>
+              <h3 id="courseFormTitle">Add Course</h3>
+              <div class="form-row">
+                <input id="courseTitle" placeholder="Title" />
+              </div>
+              <div class="form-row">
+                <textarea id="courseDesc" placeholder="Description"></textarea>
+              </div>
+              <div class="form-row">
+                <input
+                  id="coursePrice"
+                  placeholder="Price in ₹"
+                  type="number"
+                />
+              </div>
+              <div class="form-row">
+                <input id="courseImage" type="file" accept="image/*" />
+              </div>
+              <div style="display: flex; gap: 8px">
+                <button class="btn-sm btn-primary" id="saveCourseBtn">
+                  Save Course
+                </button>
+                <button class="btn-sm" id="resetCourseBtn">Reset</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Events panel -->
+        <div class="panel" id="panel-events" style="display: none">
+          <div class="grid">
+            <div>
+              <h3>Events</h3>
+              <table class="list-table" id="eventsList">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <div>
+              <h3 id="eventFormTitle">Add Event</h3>
+              <div class="form-row">
+                <input id="eventTitle" placeholder="Title" />
+              </div>
+              <div class="form-row"><input id="eventDate" type="date" /></div>
+              <div class="form-row">
+                <textarea id="eventDesc" placeholder="Description"></textarea>
+              </div>
+              <div style="display: flex; gap: 8px">
+                <button class="btn-sm btn-primary" id="saveEventBtn">
+                  Save Event
+                </button>
+                <button class="btn-sm" id="resetEventBtn">Reset</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonials panel -->
+        <div class="panel" id="panel-testimonials" style="display: none">
+          <div class="grid">
+            <div>
+              <h3>Testimonials</h3>
+              <table class="list-table" id="testimonialsList">
+                <thead>
+                  <tr>
+                    <th>Author</th>
+                    <th>Text</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <div>
+              <h3 id="testimonialFormTitle">Add Testimonial</h3>
+              <div class="form-row">
+                <input id="testAuthor" placeholder="Author name" />
+              </div>
+              <div class="form-row">
+                <textarea
+                  id="testText"
+                  placeholder="Testimonial text"
+                ></textarea>
+              </div>
+              <div class="form-row">
+                <input id="testImage" type="file" accept="image/*" />
+              </div>
+              <div style="display: flex; gap: 8px">
+                <button class="btn-sm btn-primary" id="saveTestBtn">
+                  Save
+                </button>
+                <button class="btn-sm" id="resetTestBtn">Reset</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero panel -->
+        <div class="panel" id="panel-hero" style="display: none">
+          <h3>Hero / Banner</h3>
+          <div class="form-row">
+            <input id="heroTitle" placeholder="Hero title" />
+          </div>
+          <div class="form-row">
+            <textarea id="heroSub" placeholder="Hero subtitle"></textarea>
+          </div>
+          <div class="form-row">
+            <input id="heroImage" type="file" accept="image/*" />
+          </div>
+          <div style="display: flex; gap: 8px">
+            <button class="btn-sm btn-primary" id="saveHeroBtn">
+              Save Hero
+            </button>
+          </div>
+          <div id="currentHero" style="margin-top: 16px"></div>
+        </div>
+
+        <!-- Gallery panel -->
+        <div class="panel" id="panel-gallery" style="display: none">
+          <h3>Gallery</h3>
+          <div class="form-row">
+            <input id="galleryImage" type="file" accept="image/*" multiple />
+          </div>
+          <div style="display: flex; gap: 8px">
+            <button class="btn-sm btn-primary" id="uploadGalleryBtn">
+              Upload
+            </button>
+          </div>
+          <div style="margin-top: 12px">
+            <table class="list-table" id="galleryList">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="manage-site.js"></script>
+  </body>
+</html>

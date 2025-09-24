@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="images/momentumlogo.png" />
+  </head>
+  <body>
+    <div class="auth-card">
+      <h2>Sign Up</h2>
+      <form action="/api/auth/signup" method="post" id="signupForm">
+        <div class="form-row">
+          <input type="text" id="name" placeholder="Full Name" required />
+        </div>
+        <div class="form-row">
+          <input type="email" id="email" placeholder="Email" required />
+        </div>
+        <div class="form-row">
+          <input type="text" id="mobile" placeholder="Mobile No" required />
+        </div>
+        <div class="form-row">
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <button
+          class="btn-primary"
+          style="display: block; margin: auto"
+          type="submit"
+        >
+          Sign Up
+        </button>
+      </form>
+
+      <a
+        href="login.html"
+        style="display: block; margin-top: 15px; text-align: center"
+        >Already have an account? Login</a
+      >
+
+      <script src="js/auth/student-signup.js"></script>
+    </div>
+  </body>
+</html>

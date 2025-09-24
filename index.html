@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Momentum Learning Academy</title>
+    <!-- Bootstrap CSS -->
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Optional: Bootstrap Icons (if you want icons) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+     <link rel="icon" type="image/png" href="images/momentumlogo.png">
+  </head>
+  <body>
+      
+  <!-- Loader -->
+<div id="loader">
+  <div class="spinner"></div>
+  <p class="loading-text">Loading...</p>
+</div>
+  <!-- website code start -->
+    <div id="header">
+      <div id="logo_section">
+        <span><a href="#"><img src="images/momentumlogo.png" id="logo" alt="logo"></a><h1><a href="#">Momentum Learning Academy</a></h1></span>
+        <div id="contact_details">
+          <a href="tel:+91 8509923635" class="contact-link">
+            <span class="icon" aria-hidden="true">
+              <!-- Phone SVG icon -->
+              <img src="images/call.svg" alt="Call Icon" />
+            </span>
+            Call Us
+          </a>
+          <a
+            href="https://wa.me/918509923635"
+            class="whatsapp-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="icon" aria-hidden="true">
+              <!-- WhatsApp SVG icon -->
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12c0 2.042.613 3.938 1.664 5.537L2 22l4.634-1.664A9.956 9.956 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.657 0-3.217-.506-4.527-1.373l-.323-.205-2.75.987.987-2.75-.205-.323A7.963 7.963 0 014 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8zm4.297-5.021c-.237-.119-1.399-.691-1.616-.77-.217-.079-.375-.119-.532.119-.157.237-.609.77-.747.927-.138.158-.276.178-.513.059-.237-.119-.999-.368-1.903-1.172-.703-.626-1.179-1.399-1.32-1.636-.138-.237-.015-.365.104-.484.106-.106.237-.276.355-.414.119-.138.158-.237.237-.395.079-.158.04-.296-.02-.414-.059-.119-.532-1.287-.728-1.762-.192-.462-.388-.399-.532-.406-.138-.007-.296-.009-.454-.009s-.417.059-.637.276c-.22.217-.837.823-.837 2.006s.857 2.326.977 2.488c.119.158 1.693 2.693 4.127 3.669.577.199 1.027.318 1.377.406.579.147 1.106.126 1.522.076.464-.056 1.425-.583 1.623-1.147.198-.564.198-1.045.139-1.147-.059-.102-.217-.158-.454-.277z"
+                />
+              </svg>
+            </span>
+            Connect With WhatsApp
+          </a>
+        </div>
+      </div>
+      <div id="nav">
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+        
+        <ul id="list" class="nav-menu">
+          <li class="list"><a href="#header">Home</a></li>
+          <li class="list"><a href="#about-us">About Us</a></li>
+          <li class="list dropdown">
+            <a href="#"
+              >Courses <i class="fas fa-chevron-down"></i
+            ></a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#course_section" data-course="NEET-UG"
+                  >NEET-UG</a
+                >
+              </li>
+              <li>
+                <a href="#course_section" data-course="jee">JEE-Mains</a>
+              </li>
+              <li>
+                <a href="#course_section" data-course="WBJEE">WBJEE</a>
+              </li>
+              <li>
+                <a href="#course_section" data-course="JENPAS"
+                  >JENPAS</a
+                >
+              </li>
+              <li>
+                <a href="#course_section" data-course="crashCourse">Crash Course</a>
+              </li>
+            </ul>
+          </li>
+          <li class="list"><a href="#">Student Zone</a></li>
+          <li class="list"><a href="#gallery-preview">Gallery</a></li>
+          <li class="list"><a href="#admission">Admission</a></li>
+          <li class="list"><a href="#contact">Contact Us</a></li>
+          <li class="list"><a href="login.html" id="loginBtn">Log In</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="main">
+      <!-- Hero -->
+      <div id="hero">
+        <div id="hero_slider">
+          <video src="video/heroVideo.mp4" autoplay muted class="slide active"></video>
+          <img src="images/hero_1.jpg" alt="heroImage1" class="slide"/>
+          <img src="images/hero_2.jpg" alt="heroImage2" class="slide" />
+          <img src="images/hero_3.jpg" alt="heroImage1" class="slide"/>
+          <button class="arrow left">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="arrow right">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- About Us Section -->
+      <section id="about-us" class="py-5">
+        <div class="container">
+          <!-- Hero Banner -->
+          <div
+            class="text-center mb-5 p-5 text-white rounded-3 about-hero-banner"
+          >
+            <h1 class="display-5 fw-bold">Welcome to Momentum Learning Academy</h1>
+            <p class="lead">
+              Empowering You to Crack in Your Dream Entrance Exams
+            </p>
+          </div>
+
+          <!-- Intro Paragraph -->
+          <div class="row mb-5">
+            <div class="col-lg-10 mx-auto text-center">
+              <p class="fs-5 about-intro-text">
+                At <strong>Momentum </strong>, we transform aspirations into
+                achievements. Specializing in Every Entrance
+                exams, we provide guidance, structured learning, and consistent
+                practice to help you succeed.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mission & Approach -->
+          <div class="row g-4 mb-5">
+            <div class="col-md-6">
+              <div class="card shadow-sm h-100 border-0">
+                <div class="card-body">
+                  <h4 class="card-title mb-3 about-card-title">Our Mission</h4>
+                  <p class="card-text about-card-text">
+                    Equip every student with knowledge, skills, and confidence
+                    to excel. We combine conceptual clarity with practical
+                    problem-solving techniques.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card shadow-sm h-100 border-0">
+                <div class="card-body">
+                  <h4 class="card-title mb-3 about-card-title">Our Approach</h4>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item about-list-item">
+                      <strong class="about-list-strong">Expert Faculty:</strong>
+                      Learn from experienced educators.
+                    </li>
+                    <li class="list-group-item about-list-item">
+                      <strong class="about-list-strong"
+                        >Structured Curriculum:</strong
+                      >
+                      Tailored programs for every exam.
+                    </li>
+                    <li class="list-group-item about-list-item">
+                      <strong class="about-list-strong"
+                        >Interactive Learning:</strong
+                      >
+                      Doubt-solving sessions & practice tests.
+                    </li>
+                    <li class="list-group-item about-list-item">
+                      <strong class="about-list-strong">Mentorship:</strong>
+                      Develop discipline & mindset for success.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Why Choose Us Cards -->
+          <div class="row g-4 mb-5 text-center">
+            <div class="col-md-4">
+              <div class="card shadow-sm h-100 border-0 bg-white">
+                <div class="card-body">
+                  <h5 class="card-title about-card-title">Proven Success</h5>
+                  <p class="card-text about-card-text">
+                    Many of our students have achieved top ranks in competitive
+                    exams.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card shadow-sm h-100 border-0 bg-white">
+                <div class="card-body">
+                  <h5 class="card-title about-card-title">
+                    Personalized Attention
+                  </h5>
+                  <p class="card-text about-card-text">
+                    We ensure every student receives guidance tailored to their
+                    needs.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card shadow-sm h-100 border-0 bg-white">
+                <div class="card-body">
+                  <h5 class="card-title about-card-title">Modern Resources</h5>
+                  <p class="card-text about-card-text">
+                    Access the latest study materials, practice sets, and
+                    exam-oriented resources.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Call to Action -->
+          <div class="text-center">
+            <h4 class="about-cta-title">Join Us & Achieve Your Dreams!</h4>
+            <p class="about-cta-text">Your success is our mission.</p>
+            <a href="course-registration.html" class="btn btn-lg about-enroll-btn"
+              >Enroll Now</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Courses -->
+  
+
+      <!-- Dynamic courses will be inserted here -->
+        <div id="course_section">
+  <h1>Courses We Offer</h1>
+  <div id="courses_row">
+    <div id="courses">
+      <!-- Left arrow -->
+      <button class="course_arrow left">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <!-- Course cards -->
+      <div class="course_card" id="neet">
+        <img src="images/neet-ug.jpeg" alt="NEET" class="course_img" />
+        <h3>NEET</h3>
+        <p>Comprehensive medical entrance exam preparation.</p>
+        <a href="#" class="course_btn">Learn More</a>
+      </div>
+
+      <div class="course_card" id="jee">
+        <img src="images/jee_mains.jpg" alt="JEE" class="course_img" />
+        <h3>JEE</h3>
+        <p>Engineering entrance exam coaching with detailed concepts.</p>
+        <a href="#" class="course_btn">Learn More</a>
+      </div>
+
+      <div class="course_card" id="wbjee">
+        <img src="images/wbjee.jpeg" alt="WBJEE" class="course_img" />
+        <h3>WBJEE</h3>
+        <p>West Bengal Joint Entrance Exam preparation with practice tests.</p>
+        <a href="#" class="course_btn">Learn More</a>
+      </div>
+
+      <div class="course_card" id="jenpauh">
+        <img src="images/jenpas.png" alt="JENPAS" class="course_img" />
+        <h3>JENPAS</h3>
+        <p>Bsc Nursing Entrance exam Jenpas Exam coaching.</p>
+        <a href="#" class="course_btn">Learn More</a>
+      </div>
+
+      <div class="course_card" id="crash">
+        <img src="images/crash.jpeg" alt="Crash Course" class="course_img" />
+        <h3>Crash Course</h3>
+        <p>Intensive short-term course for final exam preparation.</p>
+        <a href="#" class="course_btn">Learn More</a>
+      </div>
+
+      <!-- Right arrow -->
+      <button class="course_arrow right">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+<script src="js/index-courses.js"></script>
+
+      <!-- Testimonials Section -->
+      <div class="testimonial-container">
+        <div class="testimonial-header">
+          <h2>What Our Students Say</h2>
+          <p>
+            Don't just take our word for it - read testimonials from our
+            Achiver Students.
+          </p>
+        </div>
+
+        <div class="testimonials">
+          <div class="testimonial active">
+            <div class="testimonial-content">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p class="testimonial-text">
+                "best Coaching Center ever."
+              </p>
+              <div class="testimonial-author">
+                <img
+                  src="https://randomuser.me/api/portraits/women/43.jpg"
+                  alt="Hiranmay Barman"
+                />
+                <div class="author-details">
+                  <h4>Hiranmay Barman</h4>
+                  <p>NIT Warangal</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial">
+            <div class="testimonial-content">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <p class="testimonial-text">
+                "I was skeptical at first, but after just one week of making their Website, I'm completely sold. the more I'm learning about them the more I'm stunned"
+              </p>
+              <div class="testimonial-author">
+                <img
+                  src="https://randomuser.me/api/portraits/men/32.jpg"
+                  alt="Subhadeep Sarkar"
+                />
+                <div class="author-details">
+                  <h4>Subhadeep Sarkar</h4>
+                  <p>Freelance Developer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial">
+            <div class="testimonial-content">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p class="testimonial-text">
+                "The value for money is incredible. I've tried similar courses
+                that cost twice as much and don't deliver half as much value."
+              </p>
+              <div class="testimonial-author">
+                <img
+                  src="https://randomuser.me/api/portraits/women/65.jpg"
+                  alt="Emma Rodriguez"
+                />
+                <div class="author-details">
+                  <h4>Omuk Chatro</h4>
+                  <p>AIIMS,UttarBanga</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial">
+            <div class="testimonial-content">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <p class="testimonial-text">
+                "I've recommended this to all my friends. The curriculum is so good and it solved a problem we've been struggling with for
+                years."
+              </p>
+              <div class="testimonial-author">
+                <img
+                  src="https://randomuser.me/api/portraits/men/75.jpg"
+                  alt="omuk chhatri"
+                />
+                <div class="author-details">
+                  <h4>Omuk Chhatri</h4>
+                  <p>Jadavpur University</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial">
+            <div class="testimonial-content">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p class="testimonial-text">
+                "The implementation was seamless and the results were immediate.
+                My productivity increased by 40% in the first month
+                alone."
+              </p>
+              <div class="testimonial-author">
+                <img
+                  src="https://randomuser.me/api/portraits/women/82.jpg"
+                  alt="Priya Sharma"
+                />
+                <div class="author-details">
+                  <h4>Tomuk chhatro</h4>
+                  <p>Bsc Nursing,NBMC</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-controls">
+          <button class="control-btn prev-btn">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="indicators">
+            <span class="indicator active"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+          </div>
+          <button class="control-btn next-btn">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Events & Gallery Section -->
+      <section id="events-gallery" class="py-5 bg-light">
+        <div class="container">
+          <h2 class="text-center mb-4">Our Events & Gallery</h2>
+          <p class="text-center mb-5 text-muted">
+            Explore the highlights from our seminars, workshops, and success
+            celebrations.
+          </p>
+
+          <section id="events" class="py-5 bg-light">
+            <div class="container">
+              <h2 class="text-center mb-4">Our Events</h2>
+              <div class="row g-4">
+                <div class="col-md-4">
+                  <div class="card shadow-sm border-0 h-100">
+                    <img src="images/event_1.jpg" class="card-img-top" alt="UPSC Seminar">
+                    <div class="card-body">
+                      <h5 class="card-title">Career Councelling Seminar</h5>
+                      <p class="card-text text-muted">📅 July 10, 2025</p>
+                      <p class="card-text">Seminar on effective UPSC strategies by top faculty.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card shadow-sm border-0 h-100">
+                    <img src="images/event_2.jpg" class="card-img-top" alt="WB Board Mock Test">
+                    <div class="card-body">
+                      <h5 class="card-title">WB Semester 1 and 2 Mock Test</h5>
+                      <p class="card-text text-muted">📅 August 5, 2025</p>
+                      <p class="card-text">Full-length WB Class XI and XII mock test for real exam practice.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card shadow-sm border-0 h-100">
+                    <img src="images/event_3.jpg" class="card-img-top" alt="Neet-UG Mock Test">
+                    <div class="card-body">
+                      <h5 class="card-title">Neet-UG Exam Mock Test</h5>
+                      <p class="card-text text-muted">📅 September 1, 2025</p>
+                      <p class="card-text">Workshop on reasoning & aptitude for banking exams.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        
+         <!-- Gallery Preview Section -->
+    <section id="gallery-preview" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Gallery</h2>
+    <div class="gallery-row">
+      <img src="images/gallery1.jpeg" class="gallery-img" alt="Gallery 1">
+      <img src="images/gallery2.jpeg" class="gallery-img" alt="Gallery 2">
+      <img src="images/gallery3.jpeg" class="gallery-img" alt="Gallery 3">
+      <img src="images/gallery4.jpeg" class="gallery-img" alt="Gallery 4">
+      <img src="images/gallery5.jpeg" class="gallery-img" alt="Gallery 5">
+    </div>
+    <div class="text-center mt-4">
+      <a href="gallery.html" class="btn btn-primary">View More</a>
+    </div>
+  </div>
+    </section>
+      </section>
+<!-- admission section -->
+      <section id="admission" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">Admission Process</h2>
+    <p class="text-center mb-5">Follow these simple steps to take admission at our coaching center.</p>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body text-center">
+            <div class="step-number">1</div>
+            <h5 class="card-title mt-3">Fill the Form</h5>
+            <p class="card-text">Download and fill the admission form with accurate details.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body text-center">
+            <div class="step-number">2</div>
+            <h5 class="card-title mt-3">Submit Documents</h5>
+            <p class="card-text">Attach the required documents such as ID proof, passport photo, and mark sheet.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body text-center">
+            <div class="step-number">3</div>
+            <h5 class="card-title mt-3">Pay Fees</h5>
+            <p class="card-text">Submit the admission form along with the fee payment to confirm your seat.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Download Button -->
+    <div class="text-center mt-5">
+      <a href="files/admission-form.pdf" class="btn btn-primary btn-lg" download>
+        📄 Download Admission Form
+      </a>
+    </div>
+  </div>
+      </section>
+
+<!-- Contact Section -->
+      <section id="contact" class="py-5">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="text-center mb-5">
+      <h2 class="display-6 fw-bold  mb-3">Get In Touch</h2>
+      <p class="lead text-muted">Ready to start your journey? We're here to help you succeed.</p>
+      <div class="divider mx-auto"></div>
+    </div>
+
+    <div class="row g-12">
+      <!-- Contact Information Cards -->
+      <div class="col-lg-6">
+        <div class="contact-cards">
+          <!-- Address Card -->
+          <div class="contact-card mb-3">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-content">
+              <h5>Visit Us</h5>
+              <p>Subhaspalli,Opposite Subhaspalli Kali Mandir,near Dharmatala more,Cooch Behar,736101</p>
+            </div>
+          </div>
+
+          <!-- Phone Card -->
+          <div class="contact-card mb-3">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="contact-content">
+              <h5>Call Us</h5>
+              <p><a href="tel:+918509923635">+91 8509923635</a></p>
+              <p><a href="tel:+919647173526">+91 9647173526</a></p>
+            </div>
+          </div>
+
+          <!-- Email Card -->
+          <div class="contact-card mb-3">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-content">
+              <h5>Email Us</h5>
+              <p><a href="mailto:info@abccoachingcentre.com">momentumlearningacademy@gmail.com</a></p>
+              <p><a href="mailto:admissions@abccoachingcentre.com">admissions@momentumlearningacademy.com</a></p>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="contact-card mb-3">
+            <div class="contact-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="contact-content">
+              <h5>Office Hours</h5>
+              <p>Mon - Fri: 9:00 AM - 6:00 PM<br>Sat: 9:00 AM - 2:00 PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="col-lg-6">
+        <div class="contact-form-wrapper">
+          <div class="form-header mb-3">
+            <h4 class="fw-bold">Send us a Message</h4>
+            <p class="text-muted">Fill out the form below and we'll get back to you within 24 hours.</p>
+          </div>
+
+          <form id="contact-form" class="contact-form">
+            <div class="row g-1">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="fullName" class="form-label">Full Name *</label>
+                  <input type="text" class="form-control" id="fullName" name="fullName" required>
+                  <div class="form-feedback"></div>
+                </div>
+              </div>
+              
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="email" class="form-label">Email Address *</label>
+                  <input type="email" class="form-control" id="email" name="email" required>
+                  <div class="form-feedback"></div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="phone" class="form-label">Phone Number *</label>
+                  <input type="tel" class="form-control" id="phone" name="phone" required>
+                  <div class="form-feedback"></div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="subject" class="form-label">Subject *</label>
+                  <select class="form-control" id="subject" name="subject" required>
+                    <option value="">Select a subject</option>
+                    <option value="admission">Admission Inquiry</option>
+                    <option value="course">Course Information</option>
+                    <option value="fees">Fee Structure</option>
+                    <option value="schedule">Class Schedule</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <div class="form-feedback"></div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="message" class="form-label">Message *</label>
+                  <textarea class="form-control" id="message" name="message" rows="3" placeholder="Tell us how we can help you..." required></textarea>
+                  <div class="form-feedback"></div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="privacy" name="privacy" required>
+                  <label class="form-check-label" for="privacy">
+                    I agree to the <a href="#" class="text-primary">Privacy Policy</a> and <a href="#" class="text-primary">Terms of Service</a>
+                  </label>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-lg w-100">
+                  <i class="fas fa-paper-plane me-2"></i>
+                  Send Message
+                </button>
+              </div>
+            </div>
+            <div id="form-alert" class="mt-1"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Contact Options -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <div class="contact-options text-center">
+          <h5 class="mb-4">Prefer to reach us directly?</h5>
+          <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="tel:+918509923635" class="btn callNowButton">
+              <i class="fas fa-phone me-2"></i>
+              Call Now
+            </a>
+            <a href="https://wa.me/918509923635" class="btn btn-success" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp me-2"></i>
+              WhatsApp
+            </a>
+            <a href="mailto:momentumlearningacademy@gmail.com" class="btn btn-outline-secondary">
+              <i class="fas fa-envelope me-2"></i>
+              Email Us
+            </a>
+          </div>
+          
+          <!-- Social Media Links -->
+          <div class="mt-4">
+            <h6 class="mb-3">Follow Us on Social Media</h6>
+            <div id="social-icons" class="d-flex justify-content-center gap-3">
+              <a href="https://www.facebook.com/profile.php?id=61575952732501" class="btn links btn-outline-primary" target="_blank" rel="noopener noreferrer" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://www.instagram.com/momentum_learning_academy/" class="btn links btn-outline-danger" target="_blank" rel="noopener noreferrer" title="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://twitter.com" class="btn links btn-outline-info" target="_blank" rel="noopener noreferrer" title="Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://youtube.com/" class="btn links btn-outline-danger" target="_blank" rel="noopener noreferrer" title="YouTube">
+                <i class="fab fa-youtube"></i>
+              </a>
+              <a href="https://t.me/+nzZj9pIq5WxlYTBl" class="btn links btn-outline-primary" target="_blank" rel="noopener noreferrer" title="Telegram">
+                <i class="fab fa-telegram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      </section>
+    </div>
+<!-- Footer Section -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+  <div class="container-fluid px-4">
+    <div class="row">
+      <!-- Column 1 -->
+      <div class="col-lg-8">
+        <div class="row">
+          <!-- Site Map -->
+          <div class="col-md-6 mb-4">
+            <h5 class="mb-3">Site Map</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="#hero" class="text-white text-decoration-none">Home</a></li>
+              <li class="mb-2"><a href="#about-us" class="text-white text-decoration-none">About Us</a></li>
+              <li class="mb-2"><a href="#course_section" class="text-white text-decoration-none">Courses</a></li>
+              <li class="mb-2"><a href="#" class="text-white text-decoration-none">Student Zone</a></li>
+              <li class="mb-2"><a href="#galley" class="text-white text-decoration-none">Gallery</a></li>
+              <li class="mb-2"><a href="#admission" class="text-white text-decoration-none">Admission</a></li>
+              <li class="mb-2"><a href="#contact-us" class="text-white text-decoration-none">Contact Us</a></li>
+            </ul>
+          </div>
+    
+          <!-- Useful Resources -->
+          <div class="col-md-6 mb-4">
+            <h5 class="mb-3">Useful Resources</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2" >
+                <a href="https://t.me/+nzZj9pIq5WxlYTBl" class="text-white text-decoration-none d-flex align-items-center" target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-telegram me-2"></i> Telegram Channel
+                </a>
+              </li>
+              <li class="mb-2">
+                <a href="https://wa.me/918509923635" class="text-white text-decoration-none d-flex align-items-center" target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp me-2"></i> WhatsApp Channel
+                </a>
+              </li>
+              <li class="mb-2"><a href="#" class="text-white text-decoration-none">Study Materials</a></li>
+              <li class="mb-2"><a href="#" class="text-white text-decoration-none">Previous Year Papers</a></li>
+              <li class="mb-2"><a href="#" class="text-white text-decoration-none">Mock Tests</a></li>
+              <li class="mb-2"><a href="#" class="text-white text-decoration-none">FAQ</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <!-- Follow Us (row 2 in column 1) -->
+        <div class="row">
+          <div class="col-12 mb-1">
+            <h5 class="mb-3">Follow Us</h5>
+            <div class="social-links d-flex flex-wrap gap-3">
+              <a href="https://www.facebook.com/profile.php?id=61575952732501" class="social-link" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/momentum_learning_academy/" class="social-link" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="https://twitter.com/" class="social-link" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="https://youtube.com/" class="social-link" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="https://t.me/+nzZj9pIq5WxlYTBl" class="social-link" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+              <a href="https://wa.me/918509923635" class="social-link" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="mt-4">
+              <h6 class="mb-2">Quick Links</h6>
+              <ul class="list-unstyled">
+                <li class="mb-1"><a href="#" class="text-white text-decoration-none small">Privacy Policy</a></li>
+                <li class="mb-1"><a href="#" class="text-white text-decoration-none small">Terms & Conditions</a></li>
+                <li class="mb-1"><a href="#" class="text-white text-decoration-none small">Refund Policy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Column 2 (Contact Us spans full height) -->
+      <div class="col-lg-4">
+        <h5 class="mb-3">Contact Us</h5>
+        <div class="mb-3">
+          <p class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>Subhaspalli,Opposite Subhaspalli Kali Mandir,near Dharmatala more,Cooch Behar,736101</p>
+          <p class="mb-2"><i class="fas fa-phone me-2"></i>+91 8509923635</p>
+          <p class="mb-3"><i class="fas fa-envelope me-2"></i>momentumlearningacademy@gmail.com</p>
+        </div>
+        <div class="d-flex flex-column gap-2 mb-3">
+          <a href="tel:+918509923635" class="btn btn-outline-light btn-sm d-flex align-items-center justify-content-center">
+            <i class="fas fa-phone me-2"></i> Call Us
+          </a>
+          <a href="https://wa.me/918509923635" class="btn btn-success btn-sm d-flex align-items-center justify-content-center" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp me-2"></i> Connect with WhatsApp
+          </a>
+        </div>
+        <div class="mt-3">
+          <h6 class="mb-2">Find Us</h6>
+          <div class="ratio ratio-16x9" style="height: 120px;">
+            <iframe src="https://www.google.com/maps/place/Kali+Mandir/@26.3311095,89.4501224,19z/data=!3m1!4b1!4m6!3m5!1s0x39e2fe995e59dbe3:0x2a81d41516bec949!8m2!3d26.3311083!4d89.4507661!16s%2Fg%2F11g6xqplt_?entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D" style="border:0; border-radius: 8px;" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <hr class="my-3">
+    
+    <div class="text-center">
+      <p class="mb-0">&copy; 2025 Momentum Learning Academy. All Rights Reserved.</p>
+      <p>DEVELOPED BY BHASKAR INFOTECH</p>
+    </div>
+  </div>
+    </footer>
+
+    
+    <script src="script.js"></script>
+    <!-- Bootstrap JS Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  </body>
+</html>

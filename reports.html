@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Reports — Admin</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="admin-dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <div class="dashboard-nav">
+        <a href="admin-dashboard.html">Dashboard</a>
+        <a href="manage-site.html">Students</a>
+        <a href="transactions.html">Transactions</a>
+        <a href="reports.html" class="active">Reports</a>
+        <a class="manage-site" href="manage-site.html">Manage Site</a>
+        <a href="#" id="adminLogoutBtn">Logout</a>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <h4>Revenue Trend</h4>
+          <canvas id="revenueChart" height="120"></canvas>
+        </div>
+        <div class="stat-card">
+          <h4>Course Popularity</h4>
+          <canvas id="courseChart" height="120"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/admin-reports.js"></script>
+  </body>
+</html>

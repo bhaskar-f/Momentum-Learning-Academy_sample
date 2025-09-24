@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log In ABC Coaching centre</title>
+    <link rel="stylesheet" href="/styles/login-style.css" />
+    <link rel="icon" type="image/png" href="images/momentumlogo.png" />
+  </head>
+  <body>
+    <div class="auth-card">
+      <h2>Student Login</h2>
+      <form action="/api/auth/login" method="post" id="loginForm">
+        <div class="form-row">
+          <input
+            class="form-row"
+            type="email"
+            id="email"
+            placeholder="Email"
+            required
+          />
+        </div>
+        <div class="form-row">
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <div
+          style="
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            justify-content: center;
+          "
+        >
+          <button class="btn-primary" type="submit">Login</button>
+
+          <a href="admin-login.html" id="rollSwitchBtn">Admin Login</a>
+        </div>
+      </form>
+      <div class="extraLinks">
+        <a href="forgot-password.html">Forgot Password?</a>
+        <a href="signup.html">Don't have an account? Sign Up</a>
+      </div>
+    </div>
+
+    <script src="js/auth/student-login.js"></script>
+  </body>
+</html>

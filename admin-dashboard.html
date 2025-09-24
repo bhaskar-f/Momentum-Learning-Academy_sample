@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Admin Dashboard — ABC Coaching</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="admin-dashboard.css" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <div class="dashboard-nav">
+        <a href="admin-dashboard.html">Dashboard</a>
+        <a href="manage-site.html">Students</a>
+        <a href="transactions.html">Transactions</a>
+        <a href="reports.html">Reports</a>
+        <!-- Manage Site as the last option -->
+        <a class="manage-site" href="manage-site.html">Manage Site</a>
+         <a href="#" id="adminLogoutBtn" >Logout</a>
+    </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <h4>Total Students</h4>
+          <div id="totalStudents" style="font-size: 1.6rem; color: #003161">
+            —
+          </div>
+          <div class="small-muted">Students who have an account</div>
+        </div>
+        <div class="stat-card">
+          <h4>Revenue (₹)</h4>
+          <div id="totalRevenue" style="font-size: 1.6rem; color: #003161">
+            —
+          </div>
+          <div class="small-muted">Sum of paid orders</div>
+        </div>
+        <div class="stat-card">
+          <h4>Recent Registrations</h4>
+          <div id="recentRegs" style="font-size: 1.6rem; color: #003161">—</div>
+          <div class="small-muted">Last 7 days</div>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <h3 style="margin-bottom: 10px">Recent Students</h3>
+        <table class="dashboard-table" id="studentsTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Courses</th>
+              <th>Joined</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="js/admin-dashboard.js"></script>
+  </body>
+</html>

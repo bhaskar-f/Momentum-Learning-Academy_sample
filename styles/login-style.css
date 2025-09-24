@@ -1,0 +1,100 @@
+/* login pages  */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* small page-level overrides */
+.auth-card {
+  max-width: 420px;
+  margin: 60px auto;
+  padding: 28px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-card h2 {
+  color: #003161;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.auth-card .extraLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  /* margin-top: 12px; */
+}
+
+#rollSwitchBtn {
+  color: #436a91;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: background 0.2s;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+#rollSwitchBtn:hover {
+  color: #003161;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+#loginForm {
+  margin-bottom: 12px;
+}
+
+#loginForm a {
+  margin-bottom: 5px;
+}
+
+.form-row input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e6eef8;
+}
+.form-row {
+  margin-bottom: 10px;
+}
+
+.form-row input,
+.form-row textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #e6eef8;
+}
+/* Form Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #436a91, #5a7ba3);
+  border: none;
+  border-radius: 8px;
+  padding: 0.875rem 2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: #436a91;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #5a7ba3, #436a91);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(67, 106, 145, 0.3);
+}
