@@ -1,0 +1,119 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(90deg, #e0dfe1 0%, #fefefe 50%, #e0dfe1 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Auth Card */
+.auth-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 420px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+/* Headings */
+h2 {
+  color: #436a91;
+  margin-bottom: 25px;
+  font-weight: 700;
+  font-size: 25px;
+}
+
+/* Form Elements */
+.form-row {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+input:focus {
+  outline: none;
+  border-color: none;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+}
+
+input::placeholder {
+  color: #999;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #436a91;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 50%;
+  /* margin-bottom: 15px; */
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+}
+
+/* Extra Links */
+.extraLinks {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.extraLinks a {
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.extraLinks a:hover {
+  color: #6a11cb;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 30px 20px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  input,
+  .btn-primary,
+  .btn-secondary {
+    padding: 12px 16px;
+  }
+}

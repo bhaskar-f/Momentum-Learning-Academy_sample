@@ -10,7 +10,7 @@ if (!token || role !== "admin") {
 }
 
 // Logout
-document.getElementById("adminLogoutBtn").addEventListener("click", (e) => {
+document.getElementById("logoutBtn").addEventListener("click", (e) => {
   e.preventDefault();
   localStorage.removeItem("token");
   localStorage.removeItem("role");

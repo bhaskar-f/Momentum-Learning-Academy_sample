@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Log In ABC Coaching centre</title>
-    <link rel="stylesheet" href="/styles/login-style.css" />
+    <title>LogIn</title>
+    <link rel="stylesheet" href="styles/login.css" />
     <link rel="icon" type="image/png" href="images/momentumlogo.png" />
   </head>
   <body>
@@ -12,13 +12,7 @@
       <h2>Student Login</h2>
       <form action="/api/auth/login" method="post" id="loginForm">
         <div class="form-row">
-          <input
-            class="form-row"
-            type="email"
-            id="email"
-            placeholder="Email"
-            required
-          />
+          <input type="email" id="email" placeholder="Email" required />
         </div>
         <div class="form-row">
           <input
@@ -31,9 +25,9 @@
         <div
           style="
             display: flex;
-            gap: 8px;
+            gap: 5px;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
           "
         >
           <button class="btn-primary" type="submit">Login</button>

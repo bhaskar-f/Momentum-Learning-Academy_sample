@@ -29,6 +29,7 @@ async function api(url, opts = {}) {
 async function loadMe() {
   try {
     const me = await api("/api/student/me");
+    console.log("Student API response:", me);
     document.getElementById("stuName").textContent = me.name;
 
     // Courses
@@ -50,26 +51,29 @@ async function loadMe() {
     (me.transactions || []).forEach((t) => {
       const tr = document.createElement("tr");
       tr.innerHTML = `
-  <td>${new Date(t.createdAt).toLocaleString()}</td>
-  <td>${t.courseTitle}</td>
-  <td>₹${(t.amount / 100).toFixed(2)}</td>
-  <td>${t.status}</td>
-  <td>
-    ${
-      t.status === "paid"
-        ? `
-          <a href="#" onclick="downloadReceipt('${t._id}')">Download</a>
-          | <a href="#" onclick="resendReceipt('${t._id}')">Resend Email</a>
-        `
-        : "-"
-    }
-  </td>`;
-
+        <td>${new Date(t.createdAt).toLocaleString()}</td>
+        <td>${t.courseTitle}</td>
+        <td>₹${(t.amount / 100).toFixed(2)}</td>
+        <td>${t.status}</td>
+        <td>
+          ${
+            t.status === "paid"
+              ? `
+                <a href="#" onclick="downloadReceipt('${t._id}')">Download</a>
+                | <a href="#" onclick="resendReceipt('${t._id}')">Resend Email</a>
+              `
+              : "-"
+          }
+        </td>`;
       tb.appendChild(tr);
     });
   } catch (err) {
     console.error("Failed to load student data:", err);
-    alert("Could not load your data.");
+    const card = document.querySelector(".card");
+    const errBox = document.createElement("div");
+    errBox.className = "error-box";
+    errBox.textContent = "⚠️ Could not load your data. Please refresh.";
+    card.prepend(errBox);
   }
 }
 
@@ -98,7 +102,7 @@ async function downloadReceipt(orderId) {
   }
 }
 
-// resend function
+// Resend function
 async function resendReceipt(orderId) {
   try {
     const res = await fetch(`${API_BASE}/api/orders/${orderId}/resend`, {

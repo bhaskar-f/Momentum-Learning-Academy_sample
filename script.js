@@ -11,7 +11,7 @@ window.addEventListener("load", () => {
   // setTimeout(() => {
   loader.style.display = "none";
   content.style.display = "block";
-  // }, 1000); // 4000ms = 4 seconds
+  // }, 500); // 4000ms = 4 seconds
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -23,56 +23,23 @@ document.addEventListener("DOMContentLoaded", function () {
     mobileMenuToggle.addEventListener("click", () => {
       mobileMenuToggle.classList.toggle("active");
       navMenu.classList.toggle("active");
-      // Update container height for smooth open/close
-      // if (navMenu.classList.contains("active")) {
-      //   // measure full height
-      //   const targetHeight = navMenu.scrollHeight;
-      //   navMenu.style.setProperty("--nav-max-height", targetHeight + "px");
-      // } else {
-      //   navMenu.style.setProperty("--nav-max-height", "0px");
-      // }
     });
 
-    // Close menu when clicking on a link (except dropdown toggle)
+    // Close menu when clicking on a link
     const navLinks = navMenu.querySelectorAll("a");
     navLinks.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        if (!link.closest(".dropdown")) {
-          // keep dropdown open
-          mobileMenuToggle.classList.remove("active");
-          navMenu.classList.remove("active");
-          navMenu.style.setProperty("--nav-max-height", "0px");
-        }
+      link.addEventListener("click", () => {
+        mobileMenuToggle.classList.remove("active");
+        navMenu.classList.remove("active");
       });
     });
-
-    // Mobile dropdown toggle
 
     // Close menu when clicking outside
     document.addEventListener("click", (e) => {
       if (!mobileMenuToggle.contains(e.target) && !navMenu.contains(e.target)) {
         mobileMenuToggle.classList.remove("active");
         navMenu.classList.remove("active");
-        navMenu.style.setProperty("--nav-max-height", "0px");
       }
-    });
-  }
-
-  // Mobile-only: toggle Courses dropdown expanding and pushing links down
-  const coursesDropdown = document.querySelector(".nav-menu .dropdown > a");
-  if (coursesDropdown) {
-    coursesDropdown.addEventListener("click", (e) => {
-      // Only intercept on mobile (when nav is in column mode)
-      const isMobile = window.matchMedia("(max-width: 992px)").matches;
-      if (!isMobile) return;
-
-      e.preventDefault();
-      e.stopPropagation();
-      const parentLi = coursesDropdown.closest(".dropdown");
-      parentLi.classList.toggle("open");
-      // After toggling, recompute nav height so links push down smoothly
-      const newHeight = navMenu.scrollHeight;
-      navMenu.style.setProperty("--nav-max-height", newHeight + "px");
     });
   }
 
@@ -140,10 +107,9 @@ document.addEventListener("DOMContentLoaded", function () {
   startAutoSlide();
 
   // Courses section
-  // ...existing code...
 
   // Course slider functionality
-  const coursesRow = document.getElementById("courses");
+  const coursesRow = document.getElementById("coursesContainer");
   const leftArrowCourse = document.querySelector(".course_arrow.left");
   const rightArrowCourse = document.querySelector(".course_arrow.right");
 
