@@ -3,7 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Momentum Learning Academy provides NEET, JEE, WBJEE and JENPAS coaching with expert guidance and structured preparation."
+    />
     <title>Momentum Learning Academy</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="image"
+      href="images/hero_1.jpg"
+      fetchpriority="high"
+    />
     <!-- Bootstrap CSS -->
     <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -20,6 +34,10 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
       rel="stylesheet"
     />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
      <link rel="icon" type="image/png" href="images/momentumlogo.png">
   </head>
   <body>
@@ -32,12 +50,12 @@
   <!-- website code start -->
     <div id="header">
       <div id="logo_section">
-        <span><a href="#"><img src="images/momentumlogo.png" id="logo" alt="logo"></a><h1><a href="#">Momentum Learning Academy</a></h1></span>
+        <span><a href="#"><img src="images/momentumlogo.png" id="logo" alt="logo" width="60" height="60" fetchpriority="high" decoding="async"></a><h1><a href="#">Momentum Learning Academy</a></h1></span>
         <div id="contact_details">
           <a href="tel:+91 8509923635" class="contact-link">
             <span class="icon" aria-hidden="true">
               <!-- Phone SVG icon -->
-              <img src="images/call.svg" alt="Call Icon" />
+              <img src="images/call.svg" alt="Call Icon" width="24" height="24" decoding="async" />
             </span>
             Call Us
           </a>
@@ -114,10 +132,12 @@
       <!-- Hero -->
       <div id="hero">
         <div id="hero_slider">
-          <video src="video/heroVideo.mp4" autoplay muted class="slide active"></video>
-          <img src="images/hero_1.jpg" alt="heroImage1" class="slide"/>
-          <img src="images/hero_2.jpg" alt="heroImage2" class="slide" />
-          <img src="images/hero_3.jpg" alt="heroImage1" class="slide"/>
+          <img src="images/hero_1.jpg" alt="Momentum Learning Academy hero banner" class="slide active" fetchpriority="high" decoding="async"/>
+          <img src="images/hero_2.jpg" alt="Momentum Learning Academy classroom" class="slide" loading="lazy" decoding="async" />
+          <img src="images/hero_3.jpg" alt="Momentum Learning Academy students" class="slide" loading="lazy" decoding="async"/>
+          <video class="slide" muted playsinline preload="none" poster="images/hero_1.jpg">
+            <source src="video/heroVideo.mp4" type="video/mp4" />
+          </video>
           <button class="arrow left">
             <i class="fas fa-chevron-left"></i>
           </button>
@@ -270,35 +290,35 @@
 
       Course cards
       <div class="course_card" id="neet">
-        <img src="images/neet-ug.jpeg" alt="NEET" class="course_img" />
+        <img src="images/neet-ug.jpeg" alt="NEET" class="course_img" loading="lazy" decoding="async" />
         <h3>NEET</h3>
         <p>Comprehensive medical entrance exam preparation.</p>
         <a href="#" class="course_btn">Learn More</a>
       </div>
 
       <div class="course_card" id="jee">
-        <img src="images/jee_mains.jpg" alt="JEE" class="course_img" />
+        <img src="images/jee_mains.jpg" alt="JEE" class="course_img" loading="lazy" decoding="async" />
         <h3>JEE</h3>
         <p>Engineering entrance exam coaching with detailed concepts.</p>
         <a href="#" class="course_btn">Learn More</a>
       </div>
 
       <div class="course_card" id="wbjee">
-        <img src="images/wbjee.jpeg" alt="WBJEE" class="course_img" />
+        <img src="images/wbjee.jpeg" alt="WBJEE" class="course_img" loading="lazy" decoding="async" />
         <h3>WBJEE</h3>
         <p>West Bengal Joint Entrance Exam preparation with practice tests.</p>
         <a href="#" class="course_btn">Learn More</a>
       </div>
 
       <div class="course_card" id="jenpauh">
-        <img src="images/jenpas.png" alt="JENPAS" class="course_img" />
+        <img src="images/jenpas.png" alt="JENPAS" class="course_img" loading="lazy" decoding="async" />
         <h3>JENPAS</h3>
         <p>Bsc Nursing Entrance exam Jenpas Exam coaching.</p>
         <a href="#" class="course_btn">Learn More</a>
       </div>
 
       <div class="course_card" id="crash">
-        <img src="images/crash.jpeg" alt="Crash Course" class="course_img" />
+        <img src="images/crash.jpeg" alt="Crash Course" class="course_img" loading="lazy" decoding="async" />
         <h3>Crash Course</h3>
         <p>Intensive short-term course for final exam preparation.</p>
         <a href="#" class="course_btn">Learn More</a>
@@ -366,7 +386,7 @@
   </div>
 </div>
 
-<script src="js/index-courses.js"></script>
+<script defer src="js/index-courses.js"></script>
 
 
 
@@ -544,7 +564,7 @@
               <div class="row g-4">
                 <div class="col-md-4">
                   <div class="card shadow-sm border-0 h-100">
-                    <img src="images/event_1.jpg" class="card-img-top" alt="UPSC Seminar">
+                    <img src="images/event_1.jpg" class="card-img-top" alt="UPSC Seminar" loading="lazy" decoding="async">
                     <div class="card-body">
                       <h5 class="card-title">Career Councelling Seminar</h5>
                       <p class="card-text text-muted">ðŸ“… July 10, 2025</p>
@@ -554,7 +574,7 @@
                 </div>
                 <div class="col-md-4">
                   <div class="card shadow-sm border-0 h-100">
-                    <img src="images/event_2.jpg" class="card-img-top" alt="WB Board Mock Test">
+                    <img src="images/event_2.jpg" class="card-img-top" alt="WB Board Mock Test" loading="lazy" decoding="async">
                     <div class="card-body">
                       <h5 class="card-title">WB Semester 1 and 2 Mock Test</h5>
                       <p class="card-text text-muted">ðŸ“… August 5, 2025</p>
@@ -564,7 +584,7 @@
                 </div>
                 <div class="col-md-4">
                   <div class="card shadow-sm border-0 h-100">
-                    <img src="images/event_3.jpg" class="card-img-top" alt="Neet-UG Mock Test">
+                    <img src="images/event_3.jpg" class="card-img-top" alt="Neet-UG Mock Test" loading="lazy" decoding="async">
                     <div class="card-body">
                       <h5 class="card-title">Neet-UG Exam Mock Test</h5>
                       <p class="card-text text-muted">ðŸ“… September 1, 2025</p>
@@ -581,11 +601,11 @@
   <div class="container">
     <h2 class="text-center mb-4">Gallery</h2>
     <div class="gallery-row">
-      <img src="images/gallery1.jpeg" class="gallery-img" alt="Gallery 1">
-      <img src="images/gallery2.jpeg" class="gallery-img" alt="Gallery 2">
-      <img src="images/gallery3.jpeg" class="gallery-img" alt="Gallery 3">
-      <img src="images/gallery4.jpeg" class="gallery-img" alt="Gallery 4">
-      <img src="images/gallery5.jpeg" class="gallery-img" alt="Gallery 5">
+      <img src="images/gallery1.jpeg" class="gallery-img" alt="Gallery 1" loading="lazy" decoding="async">
+      <img src="images/gallery2.jpeg" class="gallery-img" alt="Gallery 2" loading="lazy" decoding="async">
+      <img src="images/gallery3.jpeg" class="gallery-img" alt="Gallery 3" loading="lazy" decoding="async">
+      <img src="images/gallery4.jpeg" class="gallery-img" alt="Gallery 4" loading="lazy" decoding="async">
+      <img src="images/gallery5.jpeg" class="gallery-img" alt="Gallery 5" loading="lazy" decoding="async">
     </div>
     <div class="text-center mt-4">
       <a href="gallery.html" class="btn btn-primary">View More</a>
@@ -926,10 +946,9 @@
     </footer>
 
     
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
     <!-- Bootstrap JS Bundle (includes Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
 

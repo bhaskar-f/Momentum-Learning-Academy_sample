@@ -1,4 +1,4 @@
-﻿const API_BASE =
+const API_BASE =
   (localStorage.getItem("API_BASE_URL") ||
     ((window.location.hostname === "localhost" ||
       window.location.hostname === "127.0.0.1")
@@ -6,6 +6,8 @@
       : ""))
   .trim()
   .replace(/\/+$/, "");
+
+const COURSE_REQUEST_TIMEOUT_MS = 5000;
 const token = localStorage.getItem("token");
 
 // Ensure student is logged in
@@ -15,11 +17,25 @@ if (!token) {
 }
 
 async function loadCourses() {
-  try {
-    const res = await fetch(`${API_BASE}/api/courses`);
-    const courses = await res.json();
+  const container = document.getElementById("coursesContainer");
+  if (!container) return;
 
-    const container = document.getElementById("coursesContainer");
+  const controller = new AbortController();
+  const timeoutId = window.setTimeout(
+    () => controller.abort(),
+    COURSE_REQUEST_TIMEOUT_MS
+  );
+
+  try {
+    const res = await fetch(`${API_BASE}/api/courses`, {
+      signal: controller.signal,
+    });
+    if (!res.ok) {
+      throw new Error(`Failed to load courses: ${res.status}`);
+    }
+
+    const courses = await res.json();
+    const fragment = document.createDocumentFragment();
     container.innerHTML = "";
 
     courses.forEach((course) => {
@@ -29,21 +45,27 @@ async function loadCourses() {
       card.innerHTML = `
         <img src="${course.imageUrl || "placeholder.jpg"}" alt="${
         course.title
-      }" class="course_img" />
+      }" class="course_img" loading="lazy" decoding="async" />
         <h3>${course.title}</h3>
         <p>${course.description}</p>
         <p><strong>â‚¹${course.price / 100}</strong></p>
         <button class="course_btn" data-id="${course._id}">Register Now</button>
       `;
 
-      container.appendChild(card);
+      fragment.appendChild(card);
     });
 
-    document.querySelectorAll(".course_btn").forEach((btn) => {
+    container.appendChild(fragment);
+
+    container.querySelectorAll(".course_btn").forEach((btn) => {
       btn.addEventListener("click", () => registerCourse(btn.dataset.id));
     });
   } catch (err) {
-    console.error("Failed to load courses", err);
+    if (err.name !== "AbortError") {
+      console.error("Failed to load courses", err);
+    }
+  } finally {
+    window.clearTimeout(timeoutId);
   }
 }
 
@@ -104,4 +126,3 @@ async function registerCourse(courseId) {
 }
 
 loadCourses();
-

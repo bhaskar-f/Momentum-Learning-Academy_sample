@@ -1,20 +1,27 @@
-// Preloader
+let loaderHidden = false;
 
-// Wait for the page to fully load
-
-// Show loader for 4 seconds
-window.addEventListener("load", () => {
+function hideLoader() {
+  if (loaderHidden) return;
   const loader = document.getElementById("loader");
-  const content = document.getElementById("content");
+  if (!loader) return;
+  loader.classList.add("is-hidden");
+  window.setTimeout(() => {
+    loader.style.display = "none";
+  }, 350);
+  loaderHidden = true;
+}
 
-  // Keep loader visible for 4 seconds
-  // setTimeout(() => {
-  loader.style.display = "none";
-  content.style.display = "block";
-  // }, 500); // 4000ms = 4 seconds
+// Hide loader as soon as DOM is ready (don't wait for heavy media).
+document.addEventListener("DOMContentLoaded", () => {
+  window.setTimeout(hideLoader, 150);
 });
+window.addEventListener("load", hideLoader);
 
 document.addEventListener("DOMContentLoaded", function () {
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
   // Mobile Menu Toggle
   const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
   const navMenu = document.querySelector(".nav-menu");
@@ -49,62 +56,80 @@ document.addEventListener("DOMContentLoaded", function () {
   const leftArrow = document.querySelector(".arrow.left");
   const rightArrow = document.querySelector(".arrow.right");
   const heroSection = document.getElementById("hero");
-  let current = 0;
-  let interval;
-  let isHovering = false;
+  if (slides.length && dots.length && leftArrow && rightArrow && heroSection) {
+    let current = 0;
+    let interval;
 
-  function showSlide(i) {
-    slides.forEach((s, idx) => s.classList.toggle("active", idx === i));
-    dots.forEach((d, idx) => d.classList.toggle("active", idx === i));
-    current = i;
-  }
-  function nextSlide() {
-    showSlide((current + 1) % slides.length);
-  }
-  function prevSlide() {
-    showSlide((current - 1 + slides.length) % slides.length);
-  }
-  function startAutoSlide() {
-    interval = setInterval(nextSlide, 3000);
-  }
-  function stopAutoSlide() {
-    clearInterval(interval);
-  }
+    function syncVideoPlayback(slide, isActive) {
+      if (slide.tagName !== "VIDEO") return;
+      if (isActive) {
+        slide.play().catch(() => {});
+        return;
+      }
+      slide.pause();
+      slide.currentTime = 0;
+    }
 
-  // Track hover state
-  heroSection.addEventListener("mouseenter", () => {
-    isHovering = true;
-  });
+    function showSlide(i) {
+      slides.forEach((s, idx) => {
+        const isActive = idx === i;
+        s.classList.toggle("active", isActive);
+        syncVideoPlayback(s, isActive);
+      });
+      dots.forEach((d, idx) => d.classList.toggle("active", idx === i));
+      current = i;
+    }
 
-  heroSection.addEventListener("mouseleave", () => {
-    isHovering = false;
-  });
+    function nextSlide() {
+      showSlide((current + 1) % slides.length);
+    }
 
-  leftArrow.addEventListener("click", (e) => {
-    // Only allow click if hovering over hero section
-    if (isHovering) {
+    function prevSlide() {
+      showSlide((current - 1 + slides.length) % slides.length);
+    }
+
+    function stopAutoSlide() {
+      clearInterval(interval);
+      interval = null;
+    }
+
+    function startAutoSlide() {
+      if (prefersReducedMotion || slides.length < 2) return;
+      stopAutoSlide();
+      interval = setInterval(nextSlide, 5000);
+    }
+
+    leftArrow.addEventListener("click", () => {
       stopAutoSlide();
       prevSlide();
       startAutoSlide();
-    }
-  });
-  rightArrow.addEventListener("click", (e) => {
-    // Only allow click if hovering over hero section
-    if (isHovering) {
+    });
+
+    rightArrow.addEventListener("click", () => {
       stopAutoSlide();
       nextSlide();
       startAutoSlide();
-    }
-  });
-  dots.forEach((dot, i) =>
-    dot.addEventListener("click", () => {
-      stopAutoSlide();
-      showSlide(i);
-      startAutoSlide();
-    })
-  );
-  showSlide(current);
-  startAutoSlide();
+    });
+
+    dots.forEach((dot, i) =>
+      dot.addEventListener("click", () => {
+        stopAutoSlide();
+        showSlide(i);
+        startAutoSlide();
+      })
+    );
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        stopAutoSlide();
+      } else {
+        startAutoSlide();
+      }
+    });
+
+    showSlide(current);
+    startAutoSlide();
+  }
 
   // Courses section
 
@@ -113,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const leftArrowCourse = document.querySelector(".course_arrow.left");
   const rightArrowCourse = document.querySelector(".course_arrow.right");
 
-  if (coursesRow) {
+  if (coursesRow && leftArrowCourse && rightArrowCourse) {
     const scrollAmount = 300; // Adjust scroll amount as needed
 
     leftArrowCourse.addEventListener("click", () => {
@@ -152,10 +177,11 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       const courseId = link.getAttribute("data-course");
       const targetCard = document.getElementById(courseId);
+      const courseSection = document.getElementById("course_section");
 
-      if (targetCard) {
+      if (targetCard && courseSection) {
         // Scroll to the course section first
-        document.getElementById("course_section").scrollIntoView({
+        courseSection.scrollIntoView({
           behavior: "smooth",
           block: "start",
         });
@@ -218,7 +244,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Set up automatic cycling
     function startAutoCycle() {
-      interval = setInterval(nextTestimonial, 5000); // 4s display + 1s transition = 5s total
+      if (prefersReducedMotion) return;
+      clearInterval(interval);
+      interval = setInterval(nextTestimonial, 5000);
     }
 
     // Initialize
@@ -262,6 +290,14 @@ document.addEventListener("DOMContentLoaded", function () {
         startAutoCycle();
       });
     }
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        clearInterval(interval);
+      } else {
+        startAutoCycle();
+      }
+    });
   }
 });
 document.addEventListener("DOMContentLoaded", () => {
@@ -337,7 +373,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const fullGallerySection = document.getElementById("full-gallery");
   const galleryContainer = document.getElementById("gallery-container");
 
-  if (viewMoreBtn) {
+  if (viewMoreBtn && fullGallerySection && galleryContainer) {
     viewMoreBtn.addEventListener("click", () => {
       fetch("gallery-content.html")
         .then((response) => response.text())
@@ -469,7 +505,7 @@ document.addEventListener("DOMContentLoaded", () => {
           setTimeout(() => {
             formAlert.style.display = "none";
           }, 5000);
-        }, 2000);
+        }, 900);
       } else {
         // Show error message
         formAlert.className = "mt-3 alert-danger";
