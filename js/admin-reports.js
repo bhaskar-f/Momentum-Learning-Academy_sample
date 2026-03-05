@@ -1,4 +1,4 @@
-// const API_BASE = "http://localhost:3000";
+﻿// const API_BASE = "http://localhost:3000";
 // const token = localStorage.getItem("token");
 // const role = localStorage.getItem("role");
 
@@ -23,7 +23,7 @@
 //         labels: data.revenue.labels,
 //         datasets: [
 //           {
-//             label: "Revenue (₹)",
+//             label: "Revenue (â‚¹)",
 //             data: data.revenue.values,
 //             borderColor: "#003161",
 //             fill: false,
@@ -60,8 +60,14 @@
 // });
 
 // loadReports();
-
-const API_BASE = "http://localhost:3000";
+const API_BASE =
+  (localStorage.getItem("API_BASE_URL") ||
+    ((window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1")
+      ? "http://localhost:3000"
+      : ""))
+  .trim()
+  .replace(/\/+$/, "");
 const token = localStorage.getItem("token");
 const role = localStorage.getItem("role");
 
@@ -87,7 +93,7 @@ async function loadReports() {
         labels: data.revenue.labels,
         datasets: [
           {
-            label: "Revenue (₹)",
+            label: "Revenue (â‚¹)",
             data: data.revenue.values,
             borderColor: "#003161",
             backgroundColor: "rgba(0, 49, 97, 0.1)",
@@ -125,3 +131,4 @@ document.getElementById("adminLogoutBtn").addEventListener("click", () => {
 });
 
 loadReports();
+

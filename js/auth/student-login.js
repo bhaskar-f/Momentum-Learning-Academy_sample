@@ -1,5 +1,11 @@
-const API_BASE = "http://localhost:3000";
-
+﻿const API_BASE =
+  (localStorage.getItem("API_BASE_URL") ||
+    ((window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1")
+      ? "http://localhost:3000"
+      : ""))
+  .trim()
+  .replace(/\/+$/, "");
 document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
   e.preventDefault();
   const email = document.getElementById("email").value;
@@ -20,3 +26,4 @@ document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
     alert(data.message || "Login failed");
   }
 });
+

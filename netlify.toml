@@ -1,0 +1,39 @@
+﻿[build]
+  publish = "."
+
+# Proxy frontend API calls to your deployed backend.
+# Replace YOUR_BACKEND_DOMAIN with your real backend host (no trailing slash).
+[[redirects]]
+  from = "/api/*"
+  to = "https://YOUR_BACKEND_DOMAIN/api/:splat"
+  status = 200
+  force = true
+
+# Security headers for static assets/pages.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Long cache for versioned/static assets.
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/video/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/styles/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

@@ -1,4 +1,4 @@
-// const API_BASE = "http://localhost:3000";
+﻿// const API_BASE = "http://localhost:3000";
 // const token = localStorage.getItem("token");
 // const role = localStorage.getItem("role");
 
@@ -26,7 +26,7 @@
 //         <td>${new Date(t.createdAt).toLocaleString()}</td>
 //         <td>${t.student?.name || "N/A"}</td>
 //         <td>${t.course?.title || "N/A"}</td>
-//         <td>₹${(t.amount / 100).toFixed(2)}</td>
+//         <td>â‚¹${(t.amount / 100).toFixed(2)}</td>
 //         <td>${t.status}</td>
 //         <td>${
 //           t.status === "paid"
@@ -50,8 +50,14 @@
 // });
 
 // loadTransactions();
-
-const API_BASE = "http://localhost:3000";
+const API_BASE =
+  (localStorage.getItem("API_BASE_URL") ||
+    ((window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1")
+      ? "http://localhost:3000"
+      : ""))
+  .trim()
+  .replace(/\/+$/, "");
 const token = localStorage.getItem("token");
 const role = localStorage.getItem("role");
 
@@ -79,7 +85,7 @@ async function loadTransactions() {
         <td>${new Date(t.createdAt).toLocaleString()}</td>
         <td>${t.student?.name || "N/A"}</td>
         <td>${t.course?.title || "N/A"}</td>
-        <td>₹${(t.amount / 100).toFixed(2)}</td>
+        <td>â‚¹${(t.amount / 100).toFixed(2)}</td>
         <td>${t.status}</td>
         <td>${
           t.status === "paid"
@@ -103,3 +109,4 @@ document.getElementById("adminLogoutBtn").addEventListener("click", () => {
 });
 
 loadTransactions();
+

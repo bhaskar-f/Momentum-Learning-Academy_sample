@@ -1,4 +1,11 @@
-const API_BASE = "http://localhost:3000"; // backend URL
+﻿const API_BASE =
+  (localStorage.getItem("API_BASE_URL") ||
+    ((window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1")
+      ? "http://localhost:3000"
+      : ""))
+  .trim()
+  .replace(/\/+$/, "");
 const token = localStorage.getItem("token");
 
 // Ensure student is logged in
@@ -25,7 +32,7 @@ async function loadCourses() {
       }" class="course_img" />
         <h3>${course.title}</h3>
         <p>${course.description}</p>
-        <p><strong>₹${course.price / 100}</strong></p>
+        <p><strong>â‚¹${course.price / 100}</strong></p>
         <button class="course_btn" data-id="${course._id}">Register Now</button>
       `;
 
@@ -97,3 +104,4 @@ async function registerCourse(courseId) {
 }
 
 loadCourses();
+

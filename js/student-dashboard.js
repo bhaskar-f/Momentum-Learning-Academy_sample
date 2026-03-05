@@ -1,4 +1,11 @@
-const API_BASE = "http://localhost:3000";
+﻿const API_BASE =
+  (localStorage.getItem("API_BASE_URL") ||
+    ((window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1")
+      ? "http://localhost:3000"
+      : ""))
+  .trim()
+  .replace(/\/+$/, "");
 const token = localStorage.getItem("token");
 const role = localStorage.getItem("role");
 
@@ -40,7 +47,7 @@ async function loadMe() {
       d.className = "course-card";
       d.innerHTML = `
         <strong>${c.title}</strong>
-        <div class="small-muted">₹${(c.price / 100).toFixed(2)}</div>
+        <div class="small-muted">â‚¹${(c.price / 100).toFixed(2)}</div>
       `;
       coursesEl.appendChild(d);
     });
@@ -53,7 +60,7 @@ async function loadMe() {
       tr.innerHTML = `
         <td>${new Date(t.createdAt).toLocaleString()}</td>
         <td>${t.courseTitle}</td>
-        <td>₹${(t.amount / 100).toFixed(2)}</td>
+        <td>â‚¹${(t.amount / 100).toFixed(2)}</td>
         <td>${t.status}</td>
         <td>
           ${
@@ -72,7 +79,7 @@ async function loadMe() {
     const card = document.querySelector(".card");
     const errBox = document.createElement("div");
     errBox.className = "error-box";
-    errBox.textContent = "⚠️ Could not load your data. Please refresh.";
+    errBox.textContent = "âš ï¸ Could not load your data. Please refresh.";
     card.prepend(errBox);
   }
 }
@@ -123,3 +130,4 @@ async function resendReceipt(orderId) {
 }
 
 loadMe();
+

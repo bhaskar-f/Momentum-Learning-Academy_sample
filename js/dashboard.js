@@ -1,4 +1,11 @@
-const API_BASE = "http://localhost:3000";
+﻿const API_BASE =
+  (localStorage.getItem("API_BASE_URL") ||
+    ((window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1")
+      ? "http://localhost:3000"
+      : ""))
+  .trim()
+  .replace(/\/+$/, "");
 const token = localStorage.getItem("token");
 const role = localStorage.getItem("role");
 
@@ -43,7 +50,7 @@ async function loadMe() {
     (me.courses || []).forEach((c) => {
       const d = document.createElement("div");
       d.className = "course-card";
-      d.innerHTML = `<strong>${c.title}</strong><div class="small-muted">₹${(
+      d.innerHTML = `<strong>${c.title}</strong><div class="small-muted">â‚¹${(
         c.price / 100
       ).toFixed(2)}</div>`;
       coursesEl.appendChild(d);
@@ -56,7 +63,7 @@ async function loadMe() {
       const tr = document.createElement("tr");
       tr.innerHTML = `<td>${new Date(t.createdAt).toLocaleString()}</td>
                       <td>${t.courseTitle}</td>
-                      <td>₹${(t.amount / 100).toFixed(2)}</td>
+                      <td>â‚¹${(t.amount / 100).toFixed(2)}</td>
                       <td>${t.status}</td>
                       <td>${
                         t.status === "paid"
@@ -180,15 +187,16 @@ data.transactions.forEach((t) => {
   row.innerHTML = `
     <td>${new Date(t.date).toLocaleDateString()}</td>
     <td>${t.courseTitle}</td>
-    <td>₹${t.amount / 100}</td>
+    <td>â‚¹${t.amount / 100}</td>
     <td>${t.status}</td>
     <td>
       ${
         t.status === "paid"
           ? `<a href="${API_BASE}/api/payments/receipt/${t.id}" target="_blank" class="btn btn-primary btn-sm">Download</a>`
-          : "—"
+          : "â€”"
       }
     </td>
   `;
   tbody.appendChild(row);
 });
+

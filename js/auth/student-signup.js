@@ -1,5 +1,11 @@
-const API_BASE = "http://localhost:3000";
-
+﻿const API_BASE =
+  (localStorage.getItem("API_BASE_URL") ||
+    ((window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1")
+      ? "http://localhost:3000"
+      : ""))
+  .trim()
+  .replace(/\/+$/, "");
 document.getElementById("signupForm")?.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -18,13 +24,14 @@ document.getElementById("signupForm")?.addEventListener("submit", async (e) => {
     const data = await res.json();
 
     if (res.ok) {
-      alert("✅ Signup successful! Please login.");
+      alert("âœ… Signup successful! Please login.");
       window.location.href = "login.html";
     } else {
-      alert("❌ Signup failed: " + (data.message || "Unknown error"));
+      alert("âŒ Signup failed: " + (data.message || "Unknown error"));
     }
   } catch (err) {
     console.error("Signup error:", err);
-    alert("⚠️ Could not reach server.");
+    alert("âš ï¸ Could not reach server.");
   }
 });
+
