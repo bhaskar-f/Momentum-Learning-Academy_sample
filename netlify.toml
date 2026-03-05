@@ -1,15 +1,12 @@
-﻿[build]
+[build]
   publish = "."
 
-# Proxy frontend API calls to your deployed backend.
-# Replace YOUR_BACKEND_DOMAIN with your real backend host (no trailing slash).
+# Replace this host with your real backend domain before production use.
 [[redirects]]
   from = "/api/*"
-  to = "https://YOUR_BACKEND_DOMAIN/api/:splat"
+  to = "https://example.com/api/:splat"
   status = 200
-  force = true
 
-# Security headers for static assets/pages.
 [[headers]]
   for = "/*"
   [headers.values]
@@ -17,7 +14,6 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
-# Long cache for versioned/static assets.
 [[headers]]
   for = "/images/*"
   [headers.values]
